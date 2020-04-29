@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-between mb-3">
+    <h4>Employee List</h4>
+    <button class="btn btn-primary btn-sm" routerLink="add" >+ Employee</button>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees">
+            <td>{{emp.empId}}</td>
+            <td>{{emp.empName}}</td>
+            <td>{{emp.empDepartment}}</td>
+            <td>{{emp.empLocation}}</td>
+            <td>
+                <a href="javascript:void(0)" [routerLink]="['edit',emp.empId]">Edit</a> | <a href="#" (click)="deleteEmp(emp.empId)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
